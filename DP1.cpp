@@ -84,6 +84,22 @@ void algorithm()
 int getLine(point x,point y,point c)
 {
 //Get the line that points can be above or below
+   // y = mx + b for original line.
+   // float m = two.y - one.y/(two.x - one.x); //getting our m
+    //get our b:
+   // b = one.y - m * one.x;
+   point v1;
+
+   point v2;
+   point v1.x = two.x - one.x; //vector one
+   point v1.y = two.y - one.y;
+
+   point v2.x = two.x - c.x; //vecotr two
+   point v2.y = two.y - c.y;
+   float xp = v1.x*v2.y - v1.y*v2.x; //cross product
+   if(xp > 0) return 1; //below, or to the right of the line from one to two.
+   else if(xp < 0) return -1; //above, or to the left of the line.
+   else return 0; //on the same line 
 
 return 0;
 }
